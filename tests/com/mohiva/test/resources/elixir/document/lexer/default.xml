@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"  ?>
+<ex:Doc xmlns:ex="http://elixir.mohiva.com"
+		test="{% \'\' 1  2 > 3 %}\'">
+
+	<html xmlns="http://www.w3.org/1999/xhtml">
+		<head>
+			<title>{%  %}</title>
+		</head>
+	</html>
+
+	<test />
+
+	<!-- Comment -->
+	<!--% Elixir comment %-->
+	<ex:ElementHelperWithContent>
+		<contentWithExpression>text {% '{%% test %%}' _ 1  2 > 3 %} text</contentWithExpression>
+		<contentWithRawExpressionInSingleQuotes>text {% "{%% 1 + 1 %%}" %} text</contentWithRawExpressionInSingleQuotes>
+		<contentWithRawExpressionInDoubleQuotes>text {% "{%% 1 + 1 %%}" %} text</contentWithRawExpressionInDoubleQuotes>
+		<contentWithExpressionInAttribute test="{%  %}" />
+	</ex:ElementHelperWithContent>
+
+	<ex:ElementHelperWithoutContent />
+
+	<ex:ElementHelperWithAll foo="foo" ex:AttributeHelper="{% 1  2 > 3 %}" />
+
+	<normalTagWithAttributeHelper
+		test1=""
+		ex:AttributeHelper1="{% 1  2 > 3 %}"
+		test2=""
+		test3=""
+		ex:AttributeHelper2="{% 1  2 > 3 %}"
+	/>
+
+	a simple text {% sdf %}
+
+</ex:Doc>
